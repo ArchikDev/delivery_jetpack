@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Delivery" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <!-- Кастомный шрифт для всего проекта -->
+        <item name="android:fontFamily">@font/san_franc_light</item>
+    </style>
+</resources>
