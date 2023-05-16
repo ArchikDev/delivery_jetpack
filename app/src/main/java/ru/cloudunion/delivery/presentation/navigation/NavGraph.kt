@@ -16,6 +16,7 @@ sealed class NavRoute(val route: String) {
   object Start: NavRoute(Constants.Screens.START_SCREEN)
   object Main: NavRoute(Constants.Screens.MAIN_SCREEN)
   object InfoDetail: NavRoute(Constants.Screens.RESTAURAN_DETAIL_INFO)
+  object DetailItem: NavRoute(Constants.Screens.RESTAURAN_DETAIL_ITEM_SCREEN)
   object MyOrder: NavRoute(Constants.Screens.MY_ORDER_SCREEN)
   object RestauranDetail: NavRoute("${Constants.Screens.RESTAURAN_DETAIL_SCREEN}/{${Constants.Screens.RESTAURAN_DETAIL_ID}}")
 }
@@ -23,9 +24,10 @@ sealed class NavRoute(val route: String) {
 @Composable
 fun NavGraph(navController: NavHostController) {
 
-  NavHost(navController = navController, startDestination = NavRoute.Main.route) {
+  NavHost(navController = navController, startDestination = NavRoute.DetailItem.route) {
     composable(NavRoute.Start.route) { StartScreen(navController = navController) }
     composable(NavRoute.Main.route) { RestauranListScreen(navController = navController) }
+    composable(NavRoute.DetailItem.route) { RestauranDetailItemScreen(navController = navController) }
     composable(NavRoute.InfoDetail.route) {  EnterAnimation {
       RestauranInfoScreen()
     } }
