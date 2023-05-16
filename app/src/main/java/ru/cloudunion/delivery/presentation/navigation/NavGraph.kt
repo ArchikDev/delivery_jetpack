@@ -1,6 +1,8 @@
 package ru.cloudunion.delivery.presentation.navigation
 
+import androidx.compose.animation.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -21,10 +23,12 @@ sealed class NavRoute(val route: String) {
 @Composable
 fun NavGraph(navController: NavHostController) {
 
-  NavHost(navController = navController, startDestination = NavRoute.InfoDetail.route) {
+  NavHost(navController = navController, startDestination = NavRoute.Main.route) {
     composable(NavRoute.Start.route) { StartScreen(navController = navController) }
     composable(NavRoute.Main.route) { RestauranListScreen(navController = navController) }
-    composable(NavRoute.InfoDetail.route) { RestauranInfoScreen() }
+    composable(NavRoute.InfoDetail.route) {  EnterAnimation {
+      RestauranInfoScreen()
+    } }
     composable(NavRoute.MyOrder.route) { MyOrderScreen(navController = navController) }
     composable(
       NavRoute.RestauranDetail.route,
@@ -36,4 +40,20 @@ fun NavGraph(navController: NavHostController) {
       RestauranDetailListScreen(restauranData = restauranData, navController = navController)
     }
   }
+}
+
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun EnterAnimation(content: @Composable () -> Unit) {
+  AnimatedVisibility(
+    visible = true,
+    enter = slideInVertically(
+      initialOffsetY = { -40 }
+    ) + expandVertically(
+      expandFrom = Alignment.Top
+    ) + fadeIn(initialAlpha = 0.3f),
+    exit = slideOutVertically() + shrinkVertically() + fadeOut(),
+    content = content,
+    initiallyVisible = false
+  )
 }

@@ -3,22 +3,33 @@ package ru.cloudunion.delivery.presentation.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import ru.cloudunion.delivery.R
 
 @Preview
 @Composable
 fun RestauranInfoScreen() {
-  Column(modifier = Modifier.fillMaxWidth()) {
+  Column(
+    modifier = Modifier
+      .fillMaxWidth()
+      .verticalScroll(rememberScrollState())
+  ) {
     Box(contentAlignment = Alignment.BottomStart) {
       Image(
         painter = painterResource(id = R.drawable.del_1),
@@ -28,7 +39,8 @@ fun RestauranInfoScreen() {
       )
       Box(
         modifier = Modifier
-          .background(Color.White, CircleShape)
+          .clip(shape = RoundedCornerShape(50, 50, 50))
+          .background(Color.White)
           .size(55.dp, 55.dp),
         contentAlignment = Alignment.Center
       ) {
@@ -38,10 +50,54 @@ fun RestauranInfoScreen() {
           colorFilter = ColorFilter.tint(Color.Black),
           modifier = Modifier
             .fillMaxWidth()
-            .padding(10.dp)
+            .padding(7.dp)
         )
       }
     }
+    Column(modifier = Modifier.padding(10.dp)) {
+      Text(
+        text = "Rocket Pizza",
+        style = MaterialTheme.typography.h1
+      )
+      Text(
+        text = "Попробуй космос на вкус",
+        fontSize = 15.sp,
+        fontWeight = FontWeight.Light,
+        modifier = Modifier.padding(top = 2.dp)
+      )
+      Spacer(modifier = Modifier.height(8.dp))
+      Text(
+        text = "Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.",
+        style = MaterialTheme.typography.body1
+      )
+      Spacer(modifier = Modifier.height(20.dp))
+      itemInfo(R.drawable.ic_house, "Калуга, Воскресенская, 6", -2)
+      itemInfo(R.drawable.ic_time, "Ежедневно:\n16:00 - 02:00", 4)
+      itemInfo(R.drawable.ic_delivery_availability, "Ежедневно:\n16:00 - 02:00", 4)
+      itemInfo(R.drawable.ic_ruble, "Минимальная сумма заказа:\nот 899\nСтоимость доставки:\nот 149", 4)
+      itemInfo(R.drawable.ic_call, "+79999999999", -2)
+    }
+  }
+}
+
+@Composable
+private fun itemInfo(img: Int, txt: String, offsetY: Int = 0) {
+  Row(
+    modifier=Modifier.padding(bottom = 15.dp),
+    verticalAlignment = Alignment.Top
+  ) {
+    Image(
+      painter = painterResource(id = img),
+      contentDescription = null,
+      colorFilter = ColorFilter.tint(Color.Black),
+      modifier = Modifier
+        .width(25.dp)
+        .height(25.dp)
+        .offset(y = offsetY.dp),
+      contentScale = ContentScale.Inside
+    )
+    Spacer(modifier = Modifier.width(12.dp))
+    Text(text = txt, fontSize = 15.sp)
   }
 }
 

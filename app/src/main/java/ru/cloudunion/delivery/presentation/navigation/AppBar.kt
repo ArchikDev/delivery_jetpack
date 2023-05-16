@@ -106,7 +106,10 @@ fun TopBarSecondary(
         Icon(imageVector = ImageVector.vectorResource(id = R.drawable.ic_search), contentDescription = "delete")
       }
       IconButton(
-        onClick = { /*TODO*/ }
+        onClick = {
+
+          navController.navigate(NavRoute.InfoDetail.route)
+        }
       ) {
         Image(
           painter = painterResource(id = imageName),
