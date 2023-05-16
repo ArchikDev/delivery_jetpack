@@ -31,6 +31,7 @@ object Constants {
         const val START_SCREEN = "start_screen"
         const val MAIN_SCREEN = "main_screen"
         const val MY_ORDER_SCREEN = "my_order_screen"
+        const val RESTAURAN_DETAIL_INFO = "restauran_detail_info"
         const val RESTAURAN_DETAIL_SCREEN = "restauran_detail_screen"
         const val RESTAURAN_DETAIL_ID = "restauranId"
     }
