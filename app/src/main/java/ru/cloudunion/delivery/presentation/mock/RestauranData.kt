@@ -20,3 +20,9 @@ data class RestauranData(
   val imageName: Int,
   val items: List<RestauranDetailItem>,
 )
+
+data class RestauranDataFilter(
+  val id: Int,
+  val title: String,
+  val type: Int
+)

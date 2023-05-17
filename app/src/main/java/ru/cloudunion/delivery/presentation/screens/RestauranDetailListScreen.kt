@@ -20,6 +20,8 @@ import androidx.navigation.NavHostController
 import ru.cloudunion.delivery.RestauranData
 import ru.cloudunion.delivery.RestauranDetailItem
 import ru.cloudunion.delivery.presentation.components.Tabs
+import ru.cloudunion.delivery.presentation.mock.MockData
+import ru.cloudunion.delivery.presentation.mock.MockData.TabsFilter
 import ru.cloudunion.delivery.presentation.navigation.NavRoute
 import ru.cloudunion.delivery.presentation.navigation.TopBarSecondary
 import ru.cloudunion.delivery.presentation.util.getRubleSign
@@ -30,7 +32,6 @@ fun RestauranDetailListScreen(
   navController: NavHostController
 ) {
   var selectedTabIndex by remember { mutableStateOf(0) }
-  val tabsList = listOf("Пункт1", "Пункт2", "Пункт3", "Пункт4", "Пункт5", "Пункт6")
 
   Scaffold(
     topBar = { TopBarSecondary(
@@ -41,18 +42,21 @@ fun RestauranDetailListScreen(
   ) {
     Column {
       Tabs(
-        tabs = tabsList,
+        tabs = TabsFilter,
         selectedTabIndex = selectedTabIndex
       ) {
         selectedTabIndex = it
       }
-      Text(text = tabsList[selectedTabIndex])
       LazyColumn(modifier = Modifier
         .padding(
           start = 15.dp,
-          end = 15.dp
+          end = 15.dp,
+          top = 10.dp
         )) {
-        items(restauranData.items) { restauranItemData ->
+        items(getItemsFilter(
+          restauranData.items,
+          TabsFilter[selectedTabIndex].type
+        )) { restauranItemData ->
           RestauranItem(restauranItemData = restauranItemData, onRestauranClick = {
 //          navController.navigate("${Constants.Screens.RESTAURAN_DETAIL_SCREEN}/${RestauranData.id}")
             navController.navigate(NavRoute.DetailItem.route)
@@ -60,7 +64,6 @@ fun RestauranDetailListScreen(
         }
       }
     }
-
   }
 }
 
@@ -128,4 +131,11 @@ fun RestauranItem(
     }
 
   }
+}
+
+fun getItemsFilter(
+  items: List<RestauranDetailItem>,
+  type: Int
+): List<RestauranDetailItem> {
+  return items.filter { it.type == type }
 }

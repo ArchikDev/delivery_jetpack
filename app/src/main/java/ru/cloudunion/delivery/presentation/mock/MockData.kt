@@ -3,6 +3,7 @@ package ru.cloudunion.delivery.presentation.mock
 import android.os.Build
 import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.RestauranData
+import ru.cloudunion.delivery.RestauranDataFilter
 import ru.cloudunion.delivery.RestauranDetailItem
 import java.text.SimpleDateFormat
 import java.util.*
@@ -233,6 +234,14 @@ object MockData {
         )
       )
     ),
+  )
+
+  val TabsFilter = listOf(
+    RestauranDataFilter(1, "Первая", 1),
+    RestauranDataFilter(2, "Вторая", 2),
+    RestauranDataFilter(3, "Третья", 1),
+    RestauranDataFilter(4, "Четвертая", 2),
+    RestauranDataFilter(5, "Пятая", 1),
   )
 
   fun getRestauran(newsId: Int?): RestauranData {

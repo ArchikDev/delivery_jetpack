@@ -20,10 +20,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import ru.cloudunion.delivery.R
+import ru.cloudunion.delivery.RestauranDataFilter
 
 @Composable
 fun Tabs(
-  tabs: List<String>,
+  tabs: List<RestauranDataFilter>,
   selectedTabIndex: Int,
   onTabClick: (Int) -> Unit
 ) {
@@ -40,13 +41,15 @@ fun Tabs(
       )
 
       Tab(
-        modifier = Modifier.zIndex(6f).height(35.dp),
+        modifier = Modifier
+          .zIndex(6f)
+          .height(35.dp),
         selected = selectedTabIndex == tabIndex,
         onClick = { onTabClick(tabIndex) },
 //        text = { Text(text = tab) },
         text = {
           Text(
-            text = tab,
+            text = tab.title,
             color = txtColor
           )
         },
