@@ -24,7 +24,7 @@ sealed class NavRoute(val route: String) {
 @Composable
 fun NavGraph(navController: NavHostController) {
 
-  NavHost(navController = navController, startDestination = NavRoute.DetailItem.route) {
+  NavHost(navController = navController, startDestination = NavRoute.Main.route) {
     composable(NavRoute.Start.route) { StartScreen(navController = navController) }
     composable(NavRoute.Main.route) { RestauranListScreen(navController = navController) }
     composable(NavRoute.DetailItem.route) { RestauranDetailItemScreen(navController = navController) }

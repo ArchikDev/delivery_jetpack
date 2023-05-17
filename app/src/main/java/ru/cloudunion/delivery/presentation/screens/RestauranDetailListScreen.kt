@@ -20,6 +20,7 @@ import androidx.navigation.NavHostController
 import ru.cloudunion.delivery.RestauranData
 import ru.cloudunion.delivery.RestauranDetailItem
 import ru.cloudunion.delivery.presentation.components.Tabs
+import ru.cloudunion.delivery.presentation.navigation.NavRoute
 import ru.cloudunion.delivery.presentation.navigation.TopBarSecondary
 import ru.cloudunion.delivery.presentation.util.getRubleSign
 
@@ -54,7 +55,7 @@ fun RestauranDetailListScreen(
         items(restauranData.items) { restauranItemData ->
           RestauranItem(restauranItemData = restauranItemData, onRestauranClick = {
 //          navController.navigate("${Constants.Screens.RESTAURAN_DETAIL_SCREEN}/${RestauranData.id}")
-//          navController.navigate(NavRoute.MyOrder.route)
+            navController.navigate(NavRoute.DetailItem.route)
           })
         }
       }
