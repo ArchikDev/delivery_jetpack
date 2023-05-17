@@ -14,26 +14,26 @@ import ru.cloudunion.delivery.presentation.util.Constants
 
 sealed class NavRoute(val route: String) {
   object Start: NavRoute(Constants.Screens.START_SCREEN)
-  object Main: NavRoute(Constants.Screens.MAIN_SCREEN)
-  object InfoDetail: NavRoute(Constants.Screens.RESTAURAN_DETAIL_INFO)
-  object DetailItem: NavRoute(Constants.Screens.RESTAURAN_DETAIL_ITEM_SCREEN)
+  object RestauranList: NavRoute(Constants.Screens.RESTAURAN_LIST_SCREEN)
+  object RestauranInfo: NavRoute(Constants.Screens.RESTAURAN_DETAIL_INFO)
+  object RestauranDetailItem: NavRoute(Constants.Screens.RESTAURAN_DETAIL_ITEM_SCREEN)
   object MyOrder: NavRoute(Constants.Screens.MY_ORDER_SCREEN)
-  object RestauranDetail: NavRoute("${Constants.Screens.RESTAURAN_DETAIL_SCREEN}/{${Constants.Screens.RESTAURAN_DETAIL_ID}}")
+  object RestauranDetailList: NavRoute("${Constants.Screens.RESTAURAN_DETAIL_LIST_SCREEN}/{${Constants.Screens.RESTAURAN_DETAIL_ID}}")
 }
 
 @Composable
 fun NavGraph(navController: NavHostController) {
 
-  NavHost(navController = navController, startDestination = NavRoute.Main.route) {
+  NavHost(navController = navController, startDestination = NavRoute.RestauranList.route) {
     composable(NavRoute.Start.route) { StartScreen(navController = navController) }
-    composable(NavRoute.Main.route) { RestauranListScreen(navController = navController) }
-    composable(NavRoute.DetailItem.route) { RestauranDetailItemScreen(navController = navController) }
-    composable(NavRoute.InfoDetail.route) {  EnterAnimation {
+    composable(NavRoute.RestauranList.route) { RestauranListScreen(navController = navController) }
+    composable(NavRoute.RestauranDetailItem.route) { RestauranDetailItemScreen(navController = navController) }
+    composable(NavRoute.RestauranInfo.route) {  EnterAnimation {
       RestauranInfoScreen()
     } }
     composable(NavRoute.MyOrder.route) { MyOrderScreen(navController = navController) }
     composable(
-      NavRoute.RestauranDetail.route,
+      NavRoute.RestauranDetailList.route,
       arguments = listOf(navArgument(Constants.Screens.RESTAURAN_DETAIL_ID) { type = NavType.IntType }
     )) { navBackStackEntry ->
       val id = navBackStackEntry.arguments?.getInt(Constants.Screens.RESTAURAN_DETAIL_ID)

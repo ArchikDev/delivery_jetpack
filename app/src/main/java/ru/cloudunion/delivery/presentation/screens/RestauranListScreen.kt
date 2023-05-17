@@ -45,7 +45,7 @@ fun RestauranListScreen(navController: NavHostController) {
     LazyColumn(modifier = Modifier.padding(start = 15.dp, end = 15.dp)) {
       items(MockData.RestauranList) { RestauranData ->
         itemRestaurants(restauranData = RestauranData, onRestauranClick = {
-          navController.navigate("${Constants.Screens.RESTAURAN_DETAIL_SCREEN}/${RestauranData.id}")
+          navController.navigate("${Constants.Screens.RESTAURAN_DETAIL_LIST_SCREEN}/${RestauranData.id}")
 //          navController.navigate(NavRoute.MyOrder.route)
         })
       }

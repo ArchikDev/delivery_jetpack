@@ -59,7 +59,7 @@ fun RestauranDetailListScreen(
         )) { restauranItemData ->
           RestauranItem(restauranItemData = restauranItemData, onRestauranClick = {
 //          navController.navigate("${Constants.Screens.RESTAURAN_DETAIL_SCREEN}/${RestauranData.id}")
-            navController.navigate(NavRoute.DetailItem.route)
+            navController.navigate(NavRoute.RestauranDetailItem.route)
           })
         }
       }

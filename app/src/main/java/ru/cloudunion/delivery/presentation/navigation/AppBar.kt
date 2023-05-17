@@ -108,7 +108,7 @@ fun TopBarSecondary(
       IconButton(
         onClick = {
 
-          navController.navigate(NavRoute.InfoDetail.route)
+          navController.navigate(NavRoute.RestauranInfo.route)
         }
       ) {
         Image(
