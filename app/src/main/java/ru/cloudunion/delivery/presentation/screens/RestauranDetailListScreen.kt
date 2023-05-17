@@ -105,7 +105,7 @@ fun RestauranItem(
                 Image(
                   modifier = Modifier.padding(end = 8.dp),
                   painter = painterResource(id = it),
-                  contentDescription = "image",
+                  contentDescription = null,
                 )
               }
 
@@ -117,7 +117,7 @@ fun RestauranItem(
             .width(210.dp)
             .height(210.dp),
           painter = painterResource(id = restauranItemData.image),
-          contentDescription = "image",
+          contentDescription = null,
         )
       }
       Text(
