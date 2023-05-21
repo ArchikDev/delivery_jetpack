@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.Color
 //val Black200 = Color(0xFF3C3C3C)
 
 val baseLightPallete = DeliveryColors(
-  primaryText = Color(0xFF3D454C),
+  primaryText = Color(0xFF9C27B0),
   primaryBackground = Color(0xFFFFFFFF),
   secondaryText = Color(0xCC7A8A99),
   secondaryBackground = Color(0xFFF3F4F5),

@@ -9,27 +9,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-//private val DarkColorPalette = darkColors(
-//  primary = Purple200,
-//  primaryVariant = Purple700,
-//  secondary = Black200
-//)
-//
-//private val LightColorPalette = lightColors(
-//  primary = Purple500,
-//  primaryVariant = Purple700,
-//  secondary = Black200
-
-  /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
-//)
-
 @Composable
 fun DeliveryTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
   val colors = if (darkTheme) {
@@ -60,13 +39,6 @@ fun DeliveryTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composab
     cornersStyle = RoundedCornerShape(8.dp)
   )
 
-
-//  MaterialTheme(
-//    colors = colors,
-//    typography = Typography,
-//    shapes = Shapes,
-//    content = content
-//  )
   CompositionLocalProvider(
     LocalDeliveryColors provides colors,
     LocalDeliveryTypography provides typography,
