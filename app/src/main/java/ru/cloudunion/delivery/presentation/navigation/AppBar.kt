@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.launch
 import ru.cloudunion.delivery.R
+import ru.cloudunion.delivery.presentation.components.TextHeading
 import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 
 @Composable
@@ -29,13 +30,12 @@ fun TopBarMain(
 
   return TopAppBar(
     title = {
-      Text(
+      TextHeading(
         text = title,
         modifier = Modifier.offset(x = (-20).dp),
-        style = DeliveryTheme.typography.heading
       )
     },
-    backgroundColor = Color.White,
+    backgroundColor = DeliveryTheme.colors.primaryBackground,
     navigationIcon = {
       IconButton(
         modifier = Modifier.offset(x = (-2).dp),
@@ -48,6 +48,7 @@ fun TopBarMain(
         Icon(
           imageVector = ImageVector.vectorResource(R.drawable.ic_menu),
           contentDescription = "Menu",
+          tint = DeliveryTheme.colors.tintColor
         )
       }
     },
@@ -65,10 +66,9 @@ fun TopBarSecondary(
 
   return TopAppBar(
     title = {
-      Text(
+      TextHeading(
         text = title,
         modifier = Modifier.offset(x = (-24).dp).fillMaxWidth(),
-        style = MaterialTheme.typography.h1,
         maxLines = 1
       )
     },

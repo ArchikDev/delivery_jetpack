@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ru.cloudunion.delivery.R
+import ru.cloudunion.delivery.presentation.components.TextHeading
 
 @Preview
 @Composable
@@ -55,10 +56,7 @@ fun RestauranInfoScreen() {
       }
     }
     Column(modifier = Modifier.padding(10.dp)) {
-      Text(
-        text = "Rocket Pizza",
-        style = MaterialTheme.typography.h1
-      )
+      TextHeading(text = "Rocket Pizza")
       Text(
         text = "Попробуй космос на вкус",
         fontSize = 15.sp,

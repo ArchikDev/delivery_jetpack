@@ -8,11 +8,11 @@ import androidx.compose.ui.graphics.Color
 //val Black200 = Color(0xFF3C3C3C)
 
 val baseLightPallete = DeliveryColors(
-  primaryText = Color(0xFF9C27B0),
+  primaryText = Color(0xFF3D454C),
   primaryBackground = Color(0xFFFFFFFF),
   secondaryText = Color(0xCC7A8A99),
   secondaryBackground = Color(0xFFF3F4F5),
-  tintColor = Color.Magenta,
+  tintColor = Color(0xFF3D454C),
 )
 
 val baseDarkPallete = DeliveryColors(
@@ -20,5 +20,5 @@ val baseDarkPallete = DeliveryColors(
   primaryBackground = Color(0xFF23282D),
   secondaryText = Color(0xCC7A8A99),
   secondaryBackground = Color(0xFF191E23),
-  tintColor = Color.Magenta,
+  tintColor = Color(0xFFF2F4F5),
 )

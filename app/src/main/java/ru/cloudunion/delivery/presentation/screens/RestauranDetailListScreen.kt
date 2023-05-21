@@ -1,5 +1,6 @@
 package ru.cloudunion.delivery.presentation.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -20,12 +21,15 @@ import androidx.navigation.NavHostController
 import ru.cloudunion.delivery.RestauranData
 import ru.cloudunion.delivery.RestauranDetailItem
 import ru.cloudunion.delivery.presentation.components.Tabs
+import ru.cloudunion.delivery.presentation.components.TextHeading
 import ru.cloudunion.delivery.presentation.mock.MockData
 import ru.cloudunion.delivery.presentation.mock.MockData.TabsFilter
 import ru.cloudunion.delivery.presentation.navigation.NavRoute
 import ru.cloudunion.delivery.presentation.navigation.TopBarSecondary
+import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 import ru.cloudunion.delivery.presentation.util.getRubleSign
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun RestauranDetailListScreen(
   restauranData: RestauranData,
@@ -37,8 +41,9 @@ fun RestauranDetailListScreen(
     topBar = { TopBarSecondary(
       title = restauranData.title,
       imageName = restauranData.imageName,
-      navController = navController
+      navController = navController,
     ) },
+    backgroundColor = DeliveryTheme.colors.primaryBackground
   ) {
     Column {
       Tabs(
@@ -124,10 +129,7 @@ fun RestauranItem(
           contentDescription = null,
         )
       }
-      Text(
-        text=restauranItemData.title,
-        style = MaterialTheme.typography.h1,
-      )
+      TextHeading(text = restauranItemData.title)
     }
 
   }

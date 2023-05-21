@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.presentation.components.ButtonCustom
+import ru.cloudunion.delivery.presentation.components.TextHeading
 import ru.cloudunion.delivery.presentation.util.getRubleSign
 
 @Composable
@@ -56,9 +57,8 @@ fun RestauranDetailItemScreen(
         }
         Column {
           Spacer(modifier = Modifier.height(10.dp))
-          Text(
-            text="Карпаччо из мраморной\nговядины",
-            style = MaterialTheme.typography.h1,
+          TextHeading(
+            text = "Карпаччо из мраморной\nговядины",
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
           )

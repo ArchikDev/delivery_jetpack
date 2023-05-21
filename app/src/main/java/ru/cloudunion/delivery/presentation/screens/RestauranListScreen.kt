@@ -1,5 +1,6 @@
 package ru.cloudunion.delivery.presentation.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -24,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.RestauranData
+import ru.cloudunion.delivery.presentation.components.TextHeading
 import ru.cloudunion.delivery.presentation.mock.MockData
 import ru.cloudunion.delivery.presentation.navigation.DrawerBody
 import ru.cloudunion.delivery.presentation.navigation.DrawerHeader
@@ -31,6 +33,7 @@ import ru.cloudunion.delivery.presentation.navigation.TopBarMain
 import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 import ru.cloudunion.delivery.presentation.util.Constants
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun RestauranListScreen(navController: NavHostController) {
   val scaffoldState = rememberScaffoldState()
@@ -42,6 +45,7 @@ fun RestauranListScreen(navController: NavHostController) {
       DrawerHeader()
       DrawerBody(navController = navController, scaffoldState = scaffoldState)
     },
+    backgroundColor = DeliveryTheme.colors.primaryBackground
   ) {
     LazyColumn(modifier = Modifier.padding(start = 15.dp, end = 15.dp)) {
       items(MockData.RestauranList) { RestauranData ->
@@ -104,11 +108,8 @@ private fun itemRestaurants(restauranData: RestauranData, onRestauranClick: () -
       )) {
         Row(modifier = Modifier.fillMaxWidth()) {
           Column {
-            Text(
-              text = restauranData.title,
-              style = DeliveryTheme.typography.heading,
-              modifier = Modifier.padding(bottom = 2.dp)
-            )
+            TextHeading(text = restauranData.title)
+            Spacer(modifier = Modifier.height(2.dp))
             Text(
               text = restauranData.descr,
               fontSize = 15.sp,
@@ -132,6 +133,7 @@ private fun itemRestaurants(restauranData: RestauranData, onRestauranClick: () -
 
             Text(
               text = if (restauranData.rating != null) restauranData.rating.toString() else "-",
+              color = DeliveryTheme.colors.primaryText,
               fontSize = 16.sp,
               fontWeight = FontWeight.Medium
             )
