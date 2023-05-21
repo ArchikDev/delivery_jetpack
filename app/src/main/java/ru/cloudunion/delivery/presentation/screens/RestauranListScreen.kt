@@ -28,6 +28,7 @@ import ru.cloudunion.delivery.presentation.mock.MockData
 import ru.cloudunion.delivery.presentation.navigation.DrawerBody
 import ru.cloudunion.delivery.presentation.navigation.DrawerHeader
 import ru.cloudunion.delivery.presentation.navigation.TopBarMain
+import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 import ru.cloudunion.delivery.presentation.util.Constants
 
 @Composable
@@ -105,7 +106,7 @@ private fun itemRestaurants(restauranData: RestauranData, onRestauranClick: () -
           Column {
             Text(
               text = restauranData.title,
-              style = MaterialTheme.typography.h1,
+              style = DeliveryTheme.typography.heading,
               modifier = Modifier.padding(bottom = 2.dp)
             )
             Text(

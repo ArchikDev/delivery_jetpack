@@ -1,15 +1,19 @@
 package ru.cloudunion.delivery.presentation.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -19,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import ru.cloudunion.delivery.R
+import ru.cloudunion.delivery.presentation.components.ButtonCustom
 import ru.cloudunion.delivery.presentation.util.getRubleSign
 
 @Composable
@@ -123,15 +128,8 @@ fun AddInCart() {
         .height(25.dp),
       contentScale = ContentScale.Inside
     )
-    Button(
-      onClick = { /*TODO*/ },
-      modifier = Modifier
-        .height(45.dp)
-        .width(210.dp),
-      colors = ButtonDefaults.buttonColors(
-        backgroundColor = Color.Black,
-        contentColor = Color.White
-      )
+    ButtonCustom(
+      onClick = { /*TODO*/ }
     ) {
       Row(verticalAlignment = Alignment.CenterVertically) {
         Text(

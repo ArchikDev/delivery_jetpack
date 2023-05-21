@@ -10,12 +10,13 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.rememberNavController
 import ru.cloudunion.delivery.presentation.navigation.NavGraph
+import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 
 @Composable
 fun DeliveryApp() {
   val navController = rememberNavController()
   Surface(
-    color = MaterialTheme.colors.background
+    color = DeliveryTheme.colors.primaryBackground
   ) {
     // убираем ripple-эффект через CompositionLocalProvider
     CompositionLocalProvider(

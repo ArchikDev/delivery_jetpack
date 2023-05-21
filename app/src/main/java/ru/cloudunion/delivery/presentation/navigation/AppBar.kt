@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.launch
 import ru.cloudunion.delivery.R
+import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 
 @Composable
 fun TopBarMain(
@@ -31,7 +32,7 @@ fun TopBarMain(
       Text(
         text = title,
         modifier = Modifier.offset(x = (-20).dp),
-        style = MaterialTheme.typography.h1
+        style = DeliveryTheme.typography.heading
       )
     },
     backgroundColor = Color.White,

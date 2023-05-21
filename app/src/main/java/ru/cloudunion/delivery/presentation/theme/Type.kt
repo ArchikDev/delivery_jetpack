@@ -39,7 +39,7 @@ val fontsExo = FontFamily(
 val Typography = Typography(
   body1 = TextStyle(
     fontFamily = fontsSan,
-    fontSize = 16.sp
+    fontSize = 16.sp,
   ),
   h1 = TextStyle(
     fontFamily = fontsSan,
