@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.RestauranDataFilter
+import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 
 @Composable
 fun Tabs(
@@ -31,12 +32,12 @@ fun Tabs(
   ScrollableTabRow(
     backgroundColor = Color.Transparent,
     selectedTabIndex = selectedTabIndex,
-    contentColor = Color.White,
+    contentColor = DeliveryTheme.colors.tabTextActiveColor,
     edgePadding = 0.dp,
     indicator = { TabIndicator(tabPosition = it, index = selectedTabIndex) }
   ) {
     tabs.forEachIndexed { tabIndex, tab ->
-      val txtColor: Color by animateColorAsState(if (selectedTabIndex == tabIndex) Color.White else Color.Black,
+      val txtColor: Color by animateColorAsState(if (selectedTabIndex == tabIndex) DeliveryTheme.colors.tabTextActiveColor else DeliveryTheme.colors.tabTextColor,
         animationSpec = tween(200)
       )
 
@@ -97,8 +98,8 @@ fun TabIndicator(tabPosition: List<TabPosition>, index: Int) {
       .width(indicatorEnd - indicatorStart)
       .padding(2.dp)
       .fillMaxSize()
-      .background(color = Color.Gray, RoundedCornerShape(50))
-      .border(BorderStroke(2.dp, Color.Gray), RoundedCornerShape(50))
+      .background(color = DeliveryTheme.colors.tabBackground, RoundedCornerShape(50))
+      .border(BorderStroke(2.dp, DeliveryTheme.colors.tabBackground), RoundedCornerShape(50))
       .zIndex(1f)
   )
 }

@@ -11,8 +11,10 @@ data class DeliveryColors(
   val primaryText: Color,
   val primaryBackground: Color,
   val secondaryText: Color,
-  val secondaryBackground: Color,
   val tintColor: Color,
+  val tabTextColor: Color,
+  val tabTextActiveColor: Color,
+  val tabBackground: Color,
 )
 
 data class DeliveryTypography(

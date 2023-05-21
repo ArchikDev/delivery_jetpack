@@ -27,6 +27,7 @@ import ru.cloudunion.delivery.presentation.mock.MockData.TabsFilter
 import ru.cloudunion.delivery.presentation.navigation.NavRoute
 import ru.cloudunion.delivery.presentation.navigation.TopBarSecondary
 import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
+import ru.cloudunion.delivery.presentation.theme.baseLightPallete
 import ru.cloudunion.delivery.presentation.util.getRubleSign
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -129,7 +130,10 @@ fun RestauranItem(
           contentDescription = null,
         )
       }
-      TextHeading(text = restauranItemData.title)
+      TextHeading(
+        text = restauranItemData.title,
+        color = baseLightPallete.primaryText
+      )
     }
 
   }

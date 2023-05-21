@@ -72,7 +72,7 @@ fun TopBarSecondary(
         maxLines = 1
       )
     },
-    backgroundColor = Color.White,
+    backgroundColor = DeliveryTheme.colors.primaryBackground,
     navigationIcon = {
       IconButton(
         modifier = Modifier.offset(x = (-5).dp),
@@ -85,6 +85,7 @@ fun TopBarSecondary(
         Icon(
           imageVector = ImageVector.vectorResource(R.drawable.ic_back),
           contentDescription = "Back",
+          tint = DeliveryTheme.colors.tintColor
         )
       }
     },
@@ -104,7 +105,11 @@ fun TopBarSecondary(
           }
         }
       ) {
-        Icon(imageVector = ImageVector.vectorResource(id = R.drawable.ic_search), contentDescription = "delete")
+        Icon(
+          imageVector = ImageVector.vectorResource(id = R.drawable.ic_search),
+          contentDescription = "delete",
+          tint = DeliveryTheme.colors.tintColor
+        )
       }
       IconButton(
         onClick = {
@@ -115,7 +120,7 @@ fun TopBarSecondary(
         Image(
           painter = painterResource(id = imageName),
           contentDescription = "image",
-          colorFilter = ColorFilter.tint(Color.Black),
+          colorFilter = ColorFilter.tint(DeliveryTheme.colors.tintColor),
           modifier = Modifier
             .width(50.dp)
             .padding(10.dp)

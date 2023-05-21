@@ -31,6 +31,7 @@ import ru.cloudunion.delivery.presentation.navigation.DrawerBody
 import ru.cloudunion.delivery.presentation.navigation.DrawerHeader
 import ru.cloudunion.delivery.presentation.navigation.TopBarMain
 import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
+import ru.cloudunion.delivery.presentation.theme.baseLightPallete
 import ru.cloudunion.delivery.presentation.util.Constants
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -108,7 +109,10 @@ private fun itemRestaurants(restauranData: RestauranData, onRestauranClick: () -
       )) {
         Row(modifier = Modifier.fillMaxWidth()) {
           Column {
-            TextHeading(text = restauranData.title)
+            TextHeading(
+              text = restauranData.title,
+              color = baseLightPallete.primaryText
+            )
             Spacer(modifier = Modifier.height(2.dp))
             Text(
               text = restauranData.descr,
@@ -133,7 +137,7 @@ private fun itemRestaurants(restauranData: RestauranData, onRestauranClick: () -
 
             Text(
               text = if (restauranData.rating != null) restauranData.rating.toString() else "-",
-              color = DeliveryTheme.colors.primaryText,
+              color = baseLightPallete.primaryText,
               fontSize = 16.sp,
               fontWeight = FontWeight.Medium
             )
