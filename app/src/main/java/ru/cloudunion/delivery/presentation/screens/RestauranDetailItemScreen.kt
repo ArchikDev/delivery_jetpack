@@ -25,8 +25,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.presentation.components.ButtonCustom
+import ru.cloudunion.delivery.presentation.components.Counter
 import ru.cloudunion.delivery.presentation.components.TextHeading
 import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
+import ru.cloudunion.delivery.presentation.util.Constants
 import ru.cloudunion.delivery.presentation.util.getRubleSign
 
 @Composable
@@ -82,7 +84,7 @@ fun RestauranDetailItemScreen(
         .fillMaxSize()
         .weight(.1f),
     ) {
-      AddInCart()
+      AddInCart(navController = navController)
     }
   }
 //  Column(
@@ -118,7 +120,7 @@ fun RestauranDetailItemScreen(
 }
 
 @Composable
-fun AddInCart() {
+fun AddInCart(navController: NavHostController) {
   Row(
     horizontalArrangement = Arrangement.SpaceBetween,
     verticalAlignment = Alignment.CenterVertically,
@@ -135,7 +137,9 @@ fun AddInCart() {
       contentScale = ContentScale.Inside
     )
     ButtonCustom(
-      onClick = { /*TODO*/ }
+      onClick = {
+        navController.navigate(Constants.Screens.CART_SCREEN)
+      }
     ) {
       Row(verticalAlignment = Alignment.CenterVertically) {
         Text(
@@ -149,39 +153,6 @@ fun AddInCart() {
           tint = DeliveryTheme.colors.primaryBackground
         )
       }
-    }
-  }
-}
-
-@Composable
-fun Counter() {
-  Row(modifier = Modifier.width(80.dp)) {
-    Box(modifier = Modifier
-      .background(DeliveryTheme.colors.primaryText, CircleShape)
-    ) {
-      Icon(
-        imageVector = ImageVector.vectorResource(R.drawable.ic_remove_minus),
-        contentDescription = null,
-        tint = DeliveryTheme.colors.primaryBackground,
-        modifier = Modifier.size(23.dp)
-      )
-    }
-    Text(
-      text = "1",
-      modifier = Modifier.weight(1f),
-      textAlign = TextAlign.Center,
-      fontSize = 18.sp,
-      color = DeliveryTheme.colors.primaryText
-    )
-    Box(modifier = Modifier
-      .background(DeliveryTheme.colors.primaryText, CircleShape)
-    ) {
-      Icon(
-        imageVector = ImageVector.vectorResource(R.drawable.ic_add_plus),
-        contentDescription = null,
-        tint = DeliveryTheme.colors.primaryBackground,
-        modifier = Modifier.size(23.dp)
-      )
     }
   }
 }

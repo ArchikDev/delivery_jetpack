@@ -18,13 +18,14 @@ sealed class NavRoute(val route: String) {
   object RestauranInfo: NavRoute(Constants.Screens.RESTAURAN_DETAIL_INFO)
   object RestauranDetailItem: NavRoute(Constants.Screens.RESTAURAN_DETAIL_ITEM_SCREEN)
   object MyOrder: NavRoute(Constants.Screens.MY_ORDER_SCREEN)
+  object CartScreen: NavRoute(Constants.Screens.CART_SCREEN)
   object RestauranDetailList: NavRoute("${Constants.Screens.RESTAURAN_DETAIL_LIST_SCREEN}/{${Constants.Screens.RESTAURAN_DETAIL_ID}}")
 }
 
 @Composable
 fun NavGraph(navController: NavHostController) {
 
-  NavHost(navController = navController, startDestination = NavRoute.RestauranList.route) {
+  NavHost(navController = navController, startDestination = NavRoute.CartScreen.route) {
     composable(NavRoute.Start.route) { StartScreen(navController = navController) }
     composable(NavRoute.RestauranList.route) { RestauranListScreen(navController = navController) }
     composable(NavRoute.RestauranDetailItem.route) { RestauranDetailItemScreen(navController = navController) }
@@ -32,6 +33,7 @@ fun NavGraph(navController: NavHostController) {
       RestauranInfoScreen()
     } }
     composable(NavRoute.MyOrder.route) { MyOrderScreen(navController = navController) }
+    composable(NavRoute.CartScreen.route) { CartScreen(navController = navController) }
     composable(
       NavRoute.RestauranDetailList.route,
       arguments = listOf(navArgument(Constants.Screens.RESTAURAN_DETAIL_ID) { type = NavType.IntType }

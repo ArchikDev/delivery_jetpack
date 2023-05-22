@@ -107,7 +107,7 @@ fun TopBarSecondary(
       ) {
         Icon(
           imageVector = ImageVector.vectorResource(id = R.drawable.ic_search),
-          contentDescription = "delete",
+          contentDescription = "search",
           tint = DeliveryTheme.colors.tintColor
         )
       }
@@ -128,5 +128,41 @@ fun TopBarSecondary(
 //        Icon(imageVector = Icons.Filled.Share, contentDescription = "Share")
       }
     }
+  )
+}
+
+@Composable
+fun TopBarSimple(
+  title: String,
+  navController: NavHostController
+) {
+  val coroutineScope = rememberCoroutineScope()
+
+  return TopAppBar(
+    title = {
+      TextHeading(
+        text = title,
+        modifier = Modifier.offset(x = (-24).dp).fillMaxWidth(),
+        maxLines = 1
+      )
+    },
+    backgroundColor = DeliveryTheme.colors.primaryBackground,
+    navigationIcon = {
+      IconButton(
+        modifier = Modifier.offset(x = (-5).dp),
+        onClick = {
+          coroutineScope.launch {
+            navController.popBackStack()
+          }
+        }
+      ) {
+        Icon(
+          imageVector = ImageVector.vectorResource(R.drawable.ic_back),
+          contentDescription = "Back",
+          tint = DeliveryTheme.colors.tintColor
+        )
+      }
+    },
+    elevation = 0.dp
   )
 }

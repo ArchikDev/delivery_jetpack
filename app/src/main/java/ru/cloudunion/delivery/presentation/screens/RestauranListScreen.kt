@@ -60,8 +60,6 @@ fun RestauranListScreen(navController: NavHostController) {
   }
 }
 
-
-
 @Composable
 private fun itemRestaurants(restauranData: RestauranData, onRestauranClick: () -> Unit = {}) {
   Card(
