@@ -46,6 +46,7 @@ fun RestauranListScreen(navController: NavHostController) {
       DrawerHeader()
       DrawerBody(navController = navController, scaffoldState = scaffoldState)
     },
+    drawerBackgroundColor = DeliveryTheme.colors.primaryBackground,
     backgroundColor = DeliveryTheme.colors.primaryBackground
   ) {
     LazyColumn(modifier = Modifier.padding(start = 15.dp, end = 15.dp)) {

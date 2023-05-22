@@ -22,12 +22,13 @@ fun ButtonCustom(
   Button(
     onClick = onClick,
     modifier = Modifier
-      .height(45.dp)
-      .width(210.dp),
+      .height(48.dp)
+      .width(200.dp),
     colors = ButtonDefaults.buttonColors(
-      backgroundColor = Color.Black,
-      contentColor = Color.White
+      backgroundColor = DeliveryTheme.colors.primaryText,
+      contentColor = DeliveryTheme.colors.primaryBackground
     ),
+    shape = DeliveryTheme.shapes.cornersStyle,
     content = content
   )
 }

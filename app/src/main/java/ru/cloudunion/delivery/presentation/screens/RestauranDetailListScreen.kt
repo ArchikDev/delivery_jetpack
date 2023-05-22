@@ -106,8 +106,9 @@ fun RestauranItem(
           Text(
             modifier = Modifier.padding(bottom = 8.dp),
             text = "${restauranItemData.weight} гр.",
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Light
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Light,
+            color = baseLightPallete.secondaryText
           )
           if (restauranItemData.icons.isNotEmpty()) {
             Row {

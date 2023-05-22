@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.launch
+import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 
 @Composable
 fun DrawerHeader() {
@@ -43,6 +44,7 @@ fun DrawerBody(navController: NavHostController, scaffoldState: ScaffoldState) {
     items(5) {
       Text(
         text = "Menu item $it",
+        color = DeliveryTheme.colors.primaryText,
         modifier = Modifier
           .fillMaxWidth()
           .clickable {

@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -25,6 +26,7 @@ import androidx.navigation.NavHostController
 import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.presentation.components.ButtonCustom
 import ru.cloudunion.delivery.presentation.components.TextHeading
+import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 import ru.cloudunion.delivery.presentation.util.getRubleSign
 
 @Composable
@@ -60,13 +62,17 @@ fun RestauranDetailItemScreen(
           TextHeading(
             text = "Карпаччо из мраморной\nговядины",
             textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            color = DeliveryTheme.colors.primaryText
           )
-          Spacer(modifier = Modifier.height(15.dp))
+          Spacer(modifier = Modifier.height(12.dp))
           Text(
             text="Слайсы охлажденной мраморной говядины, поданные в виде рулетов с соусом песто.",
             textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Light,
+            color = DeliveryTheme.colors.primaryText
           )
         }
       }
@@ -122,7 +128,7 @@ fun AddInCart() {
     Image(
       painter = painterResource(id = R.drawable.ic_delivery_availability),
       contentDescription = null,
-      colorFilter = ColorFilter.tint(Color.Black),
+      colorFilter = ColorFilter.tint(DeliveryTheme.colors.tintColor),
       modifier = Modifier
         .width(25.dp)
         .height(25.dp),
@@ -140,7 +146,7 @@ fun AddInCart() {
         Icon(
           imageVector = ImageVector.vectorResource(R.drawable.ic_shopping_cart),
           contentDescription = null,
-          tint = Color.White
+          tint = DeliveryTheme.colors.primaryBackground
         )
       }
     }
@@ -151,12 +157,12 @@ fun AddInCart() {
 fun Counter() {
   Row(modifier = Modifier.width(80.dp)) {
     Box(modifier = Modifier
-      .background(Color.Black, CircleShape)
+      .background(DeliveryTheme.colors.primaryText, CircleShape)
     ) {
       Icon(
         imageVector = ImageVector.vectorResource(R.drawable.ic_remove_minus),
         contentDescription = null,
-        tint = Color.White,
+        tint = DeliveryTheme.colors.primaryBackground,
         modifier = Modifier.size(23.dp)
       )
     }
@@ -164,15 +170,16 @@ fun Counter() {
       text = "1",
       modifier = Modifier.weight(1f),
       textAlign = TextAlign.Center,
-      fontSize = 18.sp
+      fontSize = 18.sp,
+      color = DeliveryTheme.colors.primaryText
     )
     Box(modifier = Modifier
-      .background(Color.Black, CircleShape)
+      .background(DeliveryTheme.colors.primaryText, CircleShape)
     ) {
       Icon(
         imageVector = ImageVector.vectorResource(R.drawable.ic_add_plus),
         contentDescription = null,
-        tint = Color.White,
+        tint = DeliveryTheme.colors.primaryBackground,
         modifier = Modifier.size(23.dp)
       )
     }

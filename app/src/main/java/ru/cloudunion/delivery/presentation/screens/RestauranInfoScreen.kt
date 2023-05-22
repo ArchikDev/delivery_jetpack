@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.presentation.components.TextHeading
+import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 
 @Preview
 @Composable
@@ -61,12 +62,14 @@ fun RestauranInfoScreen() {
         text = "Попробуй космос на вкус",
         fontSize = 15.sp,
         fontWeight = FontWeight.Light,
+        color = DeliveryTheme.colors.primaryText,
         modifier = Modifier.padding(top = 2.dp)
       )
       Spacer(modifier = Modifier.height(8.dp))
       Text(
         text = "Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.",
-        style = MaterialTheme.typography.body1
+        style = DeliveryTheme.typography.body,
+        color = DeliveryTheme.colors.primaryText
       )
       Spacer(modifier = Modifier.height(20.dp))
       itemInfo(R.drawable.ic_house, "Калуга, Воскресенская, 6", -2)
@@ -87,7 +90,7 @@ private fun itemInfo(img: Int, txt: String, offsetY: Int = 0) {
     Image(
       painter = painterResource(id = img),
       contentDescription = null,
-      colorFilter = ColorFilter.tint(Color.Black),
+      colorFilter = ColorFilter.tint(DeliveryTheme.colors.primaryText),
       modifier = Modifier
         .width(25.dp)
         .height(25.dp)
@@ -95,7 +98,11 @@ private fun itemInfo(img: Int, txt: String, offsetY: Int = 0) {
       contentScale = ContentScale.Inside
     )
     Spacer(modifier = Modifier.width(12.dp))
-    Text(text = txt, fontSize = 15.sp)
+    Text(
+      text = txt,
+      fontSize = 15.sp,
+      color = DeliveryTheme.colors.primaryText
+    )
   }
 }
 
