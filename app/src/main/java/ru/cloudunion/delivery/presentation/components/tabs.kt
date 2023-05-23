@@ -17,7 +17,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.RestauranDataFilter
@@ -49,9 +51,11 @@ fun Tabs(
         onClick = { onTabClick(tabIndex) },
 //        text = { Text(text = tab) },
         text = {
-          Text(
+          TextSimple(
             text = tab.title,
-            color = txtColor
+            color = txtColor,
+            fontWeight = FontWeight.Medium,
+            fontSize = 14.sp
           )
         },
 //        selectedContentColor = Color.White,

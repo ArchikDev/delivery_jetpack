@@ -28,7 +28,7 @@ fun Counter() {
         imageVector = ImageVector.vectorResource(R.drawable.ic_remove_minus),
         contentDescription = null,
         tint = DeliveryTheme.colors.primaryBackground,
-        modifier = Modifier.size(23.dp)
+        modifier = Modifier.size(25.dp)
       )
     }
     Text(
@@ -45,7 +45,7 @@ fun Counter() {
         imageVector = ImageVector.vectorResource(R.drawable.ic_add_plus),
         contentDescription = null,
         tint = DeliveryTheme.colors.primaryBackground,
-        modifier = Modifier.size(23.dp)
+        modifier = Modifier.size(25.dp)
       )
     }
   }

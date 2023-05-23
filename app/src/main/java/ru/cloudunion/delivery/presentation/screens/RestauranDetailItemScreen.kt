@@ -27,6 +27,7 @@ import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.presentation.components.ButtonCustom
 import ru.cloudunion.delivery.presentation.components.Counter
 import ru.cloudunion.delivery.presentation.components.TextHeading
+import ru.cloudunion.delivery.presentation.components.TextSimple
 import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 import ru.cloudunion.delivery.presentation.util.Constants
 import ru.cloudunion.delivery.presentation.util.getRubleSign
@@ -68,13 +69,10 @@ fun RestauranDetailItemScreen(
             color = DeliveryTheme.colors.primaryText
           )
           Spacer(modifier = Modifier.height(12.dp))
-          Text(
+          TextSimple(
             text="Слайсы охлажденной мраморной говядины, поданные в виде рулетов с соусом песто.",
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth(),
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Light,
-            color = DeliveryTheme.colors.primaryText
           )
         }
       }

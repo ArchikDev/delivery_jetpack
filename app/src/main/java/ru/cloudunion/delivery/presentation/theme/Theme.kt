@@ -20,12 +20,10 @@ fun DeliveryTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composab
 
   val typography = DeliveryTypography(
     body = TextStyle(
-      fontFamily = fontsSan,
       fontSize = 16.sp,
     ),
     heading = TextStyle(
-      fontFamily = fontsSan,
-      fontSize = 21.sp,
+      fontSize = 22.sp,
       fontWeight = FontWeight.Normal
     ),
     toolbar = TextStyle(

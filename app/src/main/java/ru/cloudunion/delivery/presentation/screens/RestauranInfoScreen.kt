@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.presentation.components.TextHeading
+import ru.cloudunion.delivery.presentation.components.TextSimple
 import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 
 @Preview
@@ -58,18 +59,14 @@ fun RestauranInfoScreen() {
     }
     Column(modifier = Modifier.padding(10.dp)) {
       TextHeading(text = "Rocket Pizza")
-      Text(
+      TextSimple(
         text = "Попробуй космос на вкус",
         fontSize = 15.sp,
-        fontWeight = FontWeight.Light,
-        color = DeliveryTheme.colors.primaryText,
-        modifier = Modifier.padding(top = 2.dp)
+        color = DeliveryTheme.colors.secondaryText
       )
       Spacer(modifier = Modifier.height(8.dp))
-      Text(
+      TextSimple(
         text = "Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.",
-        style = DeliveryTheme.typography.body,
-        color = DeliveryTheme.colors.primaryText
       )
       Spacer(modifier = Modifier.height(20.dp))
       itemInfo(R.drawable.ic_house, "Калуга, Воскресенская, 6", -2)
@@ -98,10 +95,10 @@ private fun itemInfo(img: Int, txt: String, offsetY: Int = 0) {
       contentScale = ContentScale.Inside
     )
     Spacer(modifier = Modifier.width(12.dp))
-    Text(
+    TextSimple(
       text = txt,
       fontSize = 15.sp,
-      color = DeliveryTheme.colors.primaryText
+      fontWeight = FontWeight.Normal
     )
   }
 }

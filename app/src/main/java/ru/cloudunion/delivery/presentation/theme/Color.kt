@@ -2,8 +2,8 @@ package ru.cloudunion.delivery.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Gray200 = Color(0xCC7A8A99)
-val Black200 = Color(0xFF3D454C)
+val Gray200 = Color(0xCC747576)
+val Black200 = Color(0xFF303132)
 
 val baseLightPallete = DeliveryColors(
   primaryText = Black200,

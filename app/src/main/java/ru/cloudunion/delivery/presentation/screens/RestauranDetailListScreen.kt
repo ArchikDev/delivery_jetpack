@@ -22,6 +22,7 @@ import ru.cloudunion.delivery.RestauranData
 import ru.cloudunion.delivery.RestauranDetailItem
 import ru.cloudunion.delivery.presentation.components.Tabs
 import ru.cloudunion.delivery.presentation.components.TextHeading
+import ru.cloudunion.delivery.presentation.components.TextSimple
 import ru.cloudunion.delivery.presentation.mock.MockData
 import ru.cloudunion.delivery.presentation.mock.MockData.TabsFilter
 import ru.cloudunion.delivery.presentation.navigation.NavRoute
@@ -99,15 +100,13 @@ fun RestauranItem(
         Column {
           Text(
             text = "${restauranItemData.price}${getRubleSign()}",
-            fontSize = 21.sp,
+            fontSize = 22.sp,
             fontWeight = FontWeight.Light,
-            modifier = Modifier.padding(bottom = 4.dp)
+            modifier = Modifier.padding(bottom = 2.dp)
           )
-          Text(
+          TextSimple(
             modifier = Modifier.padding(bottom = 8.dp),
             text = "${restauranItemData.weight} гр.",
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Light,
             color = baseLightPallete.secondaryText
           )
           if (restauranItemData.icons.isNotEmpty()) {

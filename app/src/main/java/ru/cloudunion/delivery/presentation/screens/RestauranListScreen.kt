@@ -26,6 +26,7 @@ import androidx.navigation.NavHostController
 import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.RestauranData
 import ru.cloudunion.delivery.presentation.components.TextHeading
+import ru.cloudunion.delivery.presentation.components.TextSimple
 import ru.cloudunion.delivery.presentation.mock.MockData
 import ru.cloudunion.delivery.presentation.navigation.DrawerBody
 import ru.cloudunion.delivery.presentation.navigation.DrawerHeader
@@ -107,18 +108,10 @@ private fun itemRestaurants(restauranData: RestauranData, onRestauranClick: () -
         bottom = 16.dp,
       )) {
         Row(modifier = Modifier.fillMaxWidth()) {
-          Column {
-            TextHeading(
-              text = restauranData.title,
-              color = baseLightPallete.primaryText
-            )
-            Spacer(modifier = Modifier.height(2.dp))
-            Text(
-              text = restauranData.descr,
-              fontSize = 15.sp,
-              fontWeight = FontWeight.Light
-            )
-          }
+          TextHeading(
+            text = restauranData.title,
+            color = baseLightPallete.primaryText
+          )
           Row(
             modifier = Modifier
               .fillMaxWidth()
@@ -130,7 +123,7 @@ private fun itemRestaurants(restauranData: RestauranData, onRestauranClick: () -
               imageVector = ImageVector.vectorResource(R.drawable.ic_star),
               contentDescription = "start",
               modifier = Modifier
-                .padding(end = 5.dp)
+                .padding(end = 3.dp)
                 .width(15.dp)
             )
 
@@ -142,6 +135,10 @@ private fun itemRestaurants(restauranData: RestauranData, onRestauranClick: () -
             )
           }
         }
+        TextSimple(
+          text = restauranData.descr,
+          color = baseLightPallete.primaryText
+        )
       }
     }
   }

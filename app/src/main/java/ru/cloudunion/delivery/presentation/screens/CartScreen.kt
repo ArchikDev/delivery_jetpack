@@ -22,6 +22,7 @@ import androidx.navigation.NavHostController
 import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.presentation.components.Counter
 import ru.cloudunion.delivery.presentation.components.TextHeading
+import ru.cloudunion.delivery.presentation.components.TextSimple
 import ru.cloudunion.delivery.presentation.navigation.TopBarSimple
 import ru.cloudunion.delivery.presentation.theme.baseLightPallete
 import ru.cloudunion.delivery.presentation.util.getRubleSign
@@ -91,21 +92,19 @@ private fun itemProductCart() {
           )
         }
         Column(modifier = Modifier.padding(top = 2.dp, bottom = 5.dp)) {
-          Text(text = "Том Ям", fontWeight = FontWeight.Light)
-          Text(text = "Том Ям", fontWeight = FontWeight.Light)
-          Text(text = "Том Ям", fontWeight = FontWeight.Light)
-          Text(text = "Том Ям", fontWeight = FontWeight.Light)
-          Text(text = "Том Ям", fontWeight = FontWeight.Light)
+          TextSimple(text = "Том Ям", fontSize = 15.sp)
+          TextSimple(text = "Том Ям", fontSize = 15.sp)
+          TextSimple(text = "Том Ям", fontSize = 15.sp)
+          TextSimple(text = "Том Ям", fontSize = 15.sp)
+          TextSimple(text = "Том Ям", fontSize = 15.sp)
         }
         Row(
           horizontalArrangement = Arrangement.SpaceBetween,
           verticalAlignment = Alignment.CenterVertically,
           modifier = Modifier.fillMaxWidth()
         ) {
-          Text(
-            text = "1410${getRubleSign()}",
-            fontSize = 21.sp,
-            fontWeight = FontWeight.SemiBold
+          TextHeading(
+            text = "1410${getRubleSign()}"
           )
           Counter()
         }
