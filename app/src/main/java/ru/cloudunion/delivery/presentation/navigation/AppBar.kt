@@ -5,11 +5,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.ScaffoldState
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
@@ -68,8 +70,7 @@ fun TopBarSecondary(
     title = {
       TextHeading(
         text = title,
-        modifier = Modifier.offset(x = (-24).dp).fillMaxWidth(),
-        maxLines = 1
+        modifier = Modifier.offset(x = (-24).dp).fillMaxWidth()
       )
     },
     backgroundColor = DeliveryTheme.colors.primaryBackground,
