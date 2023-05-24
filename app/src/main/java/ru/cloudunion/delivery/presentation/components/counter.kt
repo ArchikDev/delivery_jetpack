@@ -10,6 +10,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
@@ -19,15 +20,18 @@ import ru.cloudunion.delivery.R
 import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
 
 @Composable
-fun Counter() {
+fun Counter(
+  colorText: Color = DeliveryTheme.colors.primaryText,
+  colorTint: Color = DeliveryTheme.colors.primaryBackground
+) {
   Row(modifier = Modifier.width(80.dp)) {
     Box(modifier = Modifier
-      .background(DeliveryTheme.colors.primaryText, CircleShape)
+      .background(colorText, CircleShape)
     ) {
       Icon(
         imageVector = ImageVector.vectorResource(R.drawable.ic_remove_minus),
         contentDescription = null,
-        tint = DeliveryTheme.colors.primaryBackground,
+        tint = colorTint,
         modifier = Modifier.size(25.dp)
       )
     }
@@ -36,15 +40,15 @@ fun Counter() {
       modifier = Modifier.weight(1f),
       textAlign = TextAlign.Center,
       fontSize = 18.sp,
-      color = DeliveryTheme.colors.primaryText
+      color = colorText
     )
     Box(modifier = Modifier
-      .background(DeliveryTheme.colors.primaryText, CircleShape)
+      .background(colorText, CircleShape)
     ) {
       Icon(
         imageVector = ImageVector.vectorResource(R.drawable.ic_add_plus),
         contentDescription = null,
-        tint = DeliveryTheme.colors.primaryBackground,
+        tint = colorTint,
         modifier = Modifier.size(25.dp)
       )
     }

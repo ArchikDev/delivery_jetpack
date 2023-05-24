@@ -16,14 +16,18 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import ru.cloudunion.delivery.R
+import ru.cloudunion.delivery.presentation.components.ButtonCustom
 import ru.cloudunion.delivery.presentation.components.Counter
 import ru.cloudunion.delivery.presentation.components.TextHeading
 import ru.cloudunion.delivery.presentation.components.TextSimple
 import ru.cloudunion.delivery.presentation.navigation.TopBarSimple
+import ru.cloudunion.delivery.presentation.theme.DeliveryTheme
+import ru.cloudunion.delivery.presentation.theme.baseDarkPallete
 import ru.cloudunion.delivery.presentation.theme.baseLightPallete
 import ru.cloudunion.delivery.presentation.util.getRubleSign
 
@@ -32,6 +36,7 @@ import ru.cloudunion.delivery.presentation.util.getRubleSign
 fun CartScreen(navController: NavHostController) {
   Scaffold(
     topBar = { TopBarSimple(title = "Корзина", navController = navController) },
+    backgroundColor = DeliveryTheme.colors.primaryBackground
   ) {
     Column(
       modifier = Modifier
@@ -39,8 +44,7 @@ fun CartScreen(navController: NavHostController) {
         .padding(start = 15.dp, end = 15.dp),
     ) {
       itemProductCart()
-      itemProductCart()
-      itemProductCart()
+      total()
     }
   }
 }
@@ -80,7 +84,7 @@ private fun itemProductCart() {
           verticalAlignment = Alignment.Top,
           modifier = Modifier.fillMaxWidth()
         ) {
-          TextHeading(text = "Том Ям")
+          TextHeading(text = "Том Ям", color = baseLightPallete.primaryText)
           Image(
             painter = painterResource(id = R.drawable.ic_delivery_availability),
             contentDescription = null,
@@ -92,11 +96,8 @@ private fun itemProductCart() {
           )
         }
         Column(modifier = Modifier.padding(top = 2.dp, bottom = 5.dp)) {
-          TextSimple(text = "Том Ям", fontSize = 15.sp)
-          TextSimple(text = "Том Ям", fontSize = 15.sp)
-          TextSimple(text = "Том Ям", fontSize = 15.sp)
-          TextSimple(text = "Том Ям", fontSize = 15.sp)
-          TextSimple(text = "Том Ям", fontSize = 15.sp)
+          TextSimple(text = "Том Ям", fontSize = 15.sp, color = baseLightPallete.primaryText)
+          TextSimple(text = "Том Ям", fontSize = 15.sp, color = baseLightPallete.primaryText)
         }
         Row(
           horizontalArrangement = Arrangement.SpaceBetween,
@@ -104,11 +105,56 @@ private fun itemProductCart() {
           modifier = Modifier.fillMaxWidth()
         ) {
           TextHeading(
-            text = "1410${getRubleSign()}"
+            text = "1410${getRubleSign()}",
+            color = baseLightPallete.primaryText
           )
-          Counter()
+          Counter(
+            colorText = baseLightPallete.primaryText,
+            colorTint = baseLightPallete.primaryBackground
+          )
         }
       }
+    }
+  }
+}
+
+@Composable
+private fun total() {
+  Column(modifier = Modifier.fillMaxWidth()) {
+    Row(
+      modifier = Modifier.fillMaxWidth(),
+      horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+      TextSimple(
+        text = "Итого в корзине",
+        fontSize = 18.sp,
+        fontWeight = FontWeight.SemiBold
+      )
+      TextSimple(
+        text = "1500${getRubleSign()}",
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 18.sp,
+        textAlign = TextAlign.End
+      )
+    }
+    Spacer(modifier = Modifier.height(4.dp))
+    Row(
+      modifier = Modifier.fillMaxWidth(),
+      horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+      TextSimple(text = "Скидка", fontWeight = FontWeight.Normal)
+      TextSimple(text = "0%", textAlign = TextAlign.End, fontWeight = FontWeight.Normal)
+    }
+    Spacer(modifier = Modifier.height(4.dp))
+    Row(
+      modifier = Modifier.fillMaxWidth(),
+      horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+      TextSimple(text = "Доставка", fontWeight = FontWeight.Normal)
+      TextSimple(text = "0${getRubleSign()}", textAlign = TextAlign.End, fontWeight = FontWeight.Normal)
+    }
+    ButtonCustom(onClick = { /*TODO*/ }) {
+      Text(text = "Доставка")
     }
   }
 }
